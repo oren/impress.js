@@ -1,3 +1,15 @@
-.time {
-  display: none;
+#slides {
+  position: absolute;
+  font-size: 25px;
+  bottom: 20px;
+  left: 20px;
+  color: red;
+}
+
+#time {
+  position: absolute;
+  font-size: 25px;
+  bottom: 20px;
+  left: 100px;
+  color: red;
 }

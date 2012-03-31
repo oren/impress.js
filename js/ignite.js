@@ -2,26 +2,30 @@
 
   var index = 1;
   var time = 14;
-  var times = $('.time');
+  var timeElem = $('#time');
+  var slideNumElem = $('#slide-number');
+  var interval2 = null;
 
   function start() {
     restartTimer();
     var intervalID = setInterval(function() {
       index += 1;
-      impress().next();
       restartTimer();
 
-      if(index === 20) { window.clearInterval(intervalID) };
+      if(index === 21) { 
+        window.clearInterval(intervalID) 
+        window.clearInterval(intervalID2) 
+        timeElem.text('0');
+      } else {
+        impress().next();
+      };
     }, 15000);
   };
 
   function restartTimer() {
-    var intervalID2 = setInterval(function() {
-      var step = $('.step:nth-child(' + index + ')');
-      var timeElem = step.children('.time');
-      times.hide();
-      timeElem.show();
+    intervalID2 = setInterval(function() {
       timeElem.text(time);
+      slideNumElem.text(index);
       time -= 1;
       if(time === 0) { 
         window.clearInterval(intervalID2) 
